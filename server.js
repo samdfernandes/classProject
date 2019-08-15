@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3003;
+const bookmarksController = require('./controlers/bookmarks.js')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const whitelist = ['http://localhost:3000']
@@ -16,9 +17,10 @@ const whitelist = ['http://localhost:3000']
 
 // app.use(cors(corsOptions))
 app.use(express.json());
+app.use('/bookmarks', bookmarksController)
 
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    res.redirect('/bookmarks')
 })
 
 mongoose.connection.on('error', err => console.log(err.message + 'is Mongod not running?'))

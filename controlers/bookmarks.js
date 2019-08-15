@@ -30,7 +30,7 @@ bookmarks.delete('/:id', (req, res) => {
 })
 
 bookmarks.put('/:id', (req, res) => {
-    Bookmark.findByIdAndUpdate(req.params.id, req.body, {new:true} (err, updatedBookmark) => {
+    Bookmark.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedBookmark) => {
         if (err) {
             res.status(400).json({error: err.message})
         }
