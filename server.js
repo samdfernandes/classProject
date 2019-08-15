@@ -20,7 +20,7 @@ app.use(express.json());
 app.use('/bookmarks', bookmarksController)
 
 app.get('/', (req, res) => {
-    res.redirect('/bookmarks')
+    res.send('Hello World')
 })
 
 mongoose.connection.on('error', err => console.log(err.message + 'is Mongod not running?'))
