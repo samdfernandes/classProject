@@ -12,9 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state ={
-      name: "",
-      link: "",
-      description: ""
+      bookmarks: []
     }
     this.handleAddBookmark = this.handleAddBookmark.bind(this)
   }
@@ -25,11 +23,21 @@ class App extends Component {
     })
   }
 
+  async getBookmarks() {
+    const response = await axios.get(`${baseURL}/bookmarks`)
+    const bookmarks = response.data
+    this.setState({bookmarks: bookmarks})
+  }
+
+  componentDidMount() {
+    this.getBookmarks()
+  }
+
   render() {
     return (
     <div>
 
-     {/* <div>
+     <div>
         <ul>
           {
             this.state.bookmarks.map(bookmark => {
@@ -41,9 +49,9 @@ class App extends Component {
             })
           }
         </ul>
-     </div> */}
+     </div> 
       <Show name={this.state.name}/>
-      <NewForm/>
+      <NewForm handleAddBookmark={this.handleAddBookmark}/>
     </div>
     )
   }
