@@ -14,6 +14,12 @@ class NewForm extends React.Component {
             link: "",
             description:"",
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event) {
+        this.setState({ [event.currentTarget.id]: event.currentTarget.value})
     }
 
     async handleSubmit (event) {
@@ -27,8 +33,8 @@ class NewForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name"></label>
-                <input type="text" id="name" name="name" placeholder="Add a Link..."></input>
-                <input type="text" id="description" name="description" placeholder="Description"></input>
+                <input type="text" id="name" name="name" placeholder="Add a Link..." onChange={this.handleChange} value={this.state.name}></input>
+                <input type="text" id="description" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.name} ></input>
                 <input type="submit" value="Submit"></input>
             </form>
         )
