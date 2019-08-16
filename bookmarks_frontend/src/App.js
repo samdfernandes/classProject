@@ -43,6 +43,7 @@ class App extends Component {
         </ul>
      </div> */}
       <Show name={this.state.name}/>
+      <NewForm/>
     </div>
     )
   }
