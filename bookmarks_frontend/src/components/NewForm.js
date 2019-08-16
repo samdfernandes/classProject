@@ -24,7 +24,7 @@ class NewForm extends React.Component {
 
     async handleSubmit (event) {
         event.preventDefault()
-        const response = await axios.post(`${baseURL}/bookmarks`, {name: this.state.name})
+        const response = await axios.post(`${baseURL}/bookmarks`, {name: this.state.name, link: this.state.link, description: this.state.description})
         this.setState({name: ''})
         this.props.handleAddBookmark(response.data)
     }
