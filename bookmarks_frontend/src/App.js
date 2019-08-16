@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm'
 import Show from './components/Show'
-import deleteIcon from './images/deleteIcon.png'
+import trash from './images/trashIcon.png'
+import pencil from './images/pencilIcon.png'
 
 let baseURL = "http://localhost:3003"
 
@@ -56,7 +57,8 @@ class App extends Component {
               return(
                 <li key={bookmark._id}>
                   <a href={bookmark.link}>{bookmark.name}</a>
-                  <div onclick={() => this.deleteBookmark(bookmark._id)}><img src={deleteIcon} /></div>
+                  <div onClick={() => this.deleteBookmark(bookmark._id)}><img src={trash} alt="delete bookmark"/></div>
+                  <div /*onclick={() => this.updateBookmark(bookmark._id)}*/><img src={pencil} alt="edit bookmark"/></div>
                 </li>
               )
             })
