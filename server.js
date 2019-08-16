@@ -14,9 +14,9 @@ const corsOptions = {
     }
     }
 }
-
-app.use(cors(corsOptions))
 app.use(express.json());
+app.use(cors(corsOptions))
+
 app.use('/bookmarks', bookmarksController)
 
 app.get('/', (req, res) => {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm'
 import Show from './components/Show'
+import deleteIcon from './images/deleteIcon.png'
 
 let baseURL = "http://localhost:3003"
 
@@ -15,6 +16,7 @@ class App extends Component {
       bookmarks: []
     }
     this.handleAddBookmark = this.handleAddBookmark.bind(this)
+    this.deleteBookmark = this.deleteBookmark.bind(this)
   }
 
   handleAddBookmark(bookmark) {
@@ -27,6 +29,16 @@ class App extends Component {
     const response = await axios.get(`${baseURL}/bookmarks`)
     const bookmarks = response.data
     this.setState({bookmarks: bookmarks})
+  }
+
+  async deleteBookmark(id){
+    await axios.delete(`${baseURL}/bookmarks/${id}`)
+    const filteredBookmarks = this.state.bookmarks.filter((bookmark) => {
+      return (bookmark._id !== id)
+    })
+    this.setState({
+      bookmarks: filteredBookmarks
+    })
   }
 
   componentDidMount() {
@@ -44,13 +56,14 @@ class App extends Component {
               return(
                 <li key={bookmark._id}>
                   <a href={bookmark.link}>{bookmark.name}</a>
+                  <div onclick={() => this.deleteBookmark(bookmark._id)}><img src={deleteIcon} /></div>
                 </li>
               )
             })
           }
         </ul>
      </div> 
-      <Show name={this.state.name}/>
+      <Show />
       <NewForm handleAddBookmark={this.handleAddBookmark}/>
     </div>
     )
