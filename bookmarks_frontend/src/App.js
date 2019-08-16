@@ -16,6 +16,7 @@ class App extends Component {
       link: "",
       description: ""
     }
+    this.handleAddBookmark = this.handleAddBookmark.bind(this)
   }
 
   handleAddBookmark(bookmark) {
@@ -27,9 +28,21 @@ class App extends Component {
   render() {
     return (
     <div>
-     
 
-      <Show />
+     <div>
+        <ul>
+          {
+            this.state.bookmarks.map(bookmark => {
+              return(
+                <li key={bookmark._id}>
+                  <a href={bookmark.link}>{bookmark.name}</a>
+                </li>
+              )
+            })
+          }
+        </ul>
+     </div>
+      <Show name={this.state.name}/>
     </div>
     )
   }
