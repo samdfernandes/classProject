@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import NewForm from './components/NewForm'
+import Show from './components/Show'
 
 let baseURL = "http://localhost:3003"
 
@@ -16,10 +18,17 @@ class App extends Component {
     }
   }
 
+  handleAddBookmark(bookmark) {
+    this.setState({
+      bookmarks: [...this.state.bookmarks, bookmark]
+    })
+  }
+
   render() {
     return (
     <div>
-      <NewForm />
+     
+
       <Show />
     </div>
     )
