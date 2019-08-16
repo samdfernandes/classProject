@@ -29,7 +29,7 @@ class App extends Component {
     return (
     <div>
 
-     <div>
+     {/* <div>
         <ul>
           {
             this.state.bookmarks.map(bookmark => {
@@ -41,7 +41,7 @@ class App extends Component {
             })
           }
         </ul>
-     </div>
+     </div> */}
       <Show name={this.state.name}/>
     </div>
     )
