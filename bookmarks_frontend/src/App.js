@@ -65,8 +65,8 @@ class App extends Component {
           }
         </ul>
      </div> 
-      <Show />
       <NewForm handleAddBookmark={this.handleAddBookmark}/>
+      <Show />
     </div>
     )
   }
