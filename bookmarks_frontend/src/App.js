@@ -26,6 +26,23 @@ class App extends Component {
     })
   }
 
+  updateBookmark(thisBookmark) {
+    const bookmarks = this.state.bookmarks;
+
+    bookmarks.forEach(bookmark => {
+      if(bookmark._id === thisBookmark._id) {
+        bookmark.name = thisBookmark.name;
+        bookmark.link = thisBookmark.link;
+        bookmark.description = thisBookmark.description;
+      }
+    })
+    this.setState({
+      bookmarks: bookmarks
+    })
+  }
+
+
+
   async getBookmarks() {
     const response = await axios.get(`${baseURL}/bookmarks`)
     const bookmarks = response.data
@@ -58,7 +75,7 @@ class App extends Component {
                 <li key={bookmark._id}>
                   <a href={bookmark.link}>{bookmark.name}</a>
                   <div onClick={() => this.deleteBookmark(bookmark._id)}><img src={trash} alt="delete bookmark"/></div>
-                  <div /*onclick={() => this.updateBookmark(bookmark._id)}*/><img src={pencil} alt="edit bookmark"/></div>
+                  <div onclick={() => this.updateBookmark(bookmark._id)}><img src={pencil} alt="edit bookmark"/></div>
                 </li>
               )
             })
