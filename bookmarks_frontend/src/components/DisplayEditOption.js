@@ -61,7 +61,9 @@ class Show extends React.Component {
                 {this.state.isEditing ?
                     <SamEditForm
                         bookmark={this.state.bookmark} 
-                        bookmarks={this.state.bookmarks} />
+                        bookmarks={this.state.bookmarks} 
+                        updateBookmark={this.updateBookmark}
+                        closeEditFunction={this.closeEditFunction}/>
 
                     : null}
 			</div>
