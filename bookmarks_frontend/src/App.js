@@ -3,7 +3,9 @@ import axios from 'axios';
 import NewForm from './components/NewForm'
 import Show from './components/Show'
 import trash from './images/trashIcon.png'
-import pencil from './images/pencilIcon.png'
+import SamEditForm from './components/SamEditForm'
+
+import DisplayEditOption from './components/DisplayEditOption'
 
 let baseURL = "http://localhost:3003"
 
@@ -16,9 +18,6 @@ class App extends Component {
     this.state ={
       bookmarks: [],
       bookmark: {},
-      name: "",
-      link: "",
-      description: "",
       selected: false
     }
     this.handleAddBookmark = this.handleAddBookmark.bind(this)
@@ -32,6 +31,7 @@ class App extends Component {
     })
   }
 
+
   //maybe move this function later to our show or other component file to use with the update function
   updateBookmark(thisBookmark) {
     const bookmarks = this.state.bookmarks;
@@ -41,6 +41,7 @@ class App extends Component {
         bookmark.name = thisBookmark.name;
         bookmark.link = thisBookmark.link;
         bookmark.description = thisBookmark.description;
+        return bookmark
       }
     })
     this.setState({
@@ -107,10 +108,7 @@ class App extends Component {
                   </div>
                   
                   <div >
-                    { bookmark.selected ? 
-                      <Show bookmark={this.state.bookmark} id={bookmark._id} name={bookmark.name} link={bookmark.link} descrition={bookmark.description}/> :
-                      <img onClick={()=>this.toggleSelected(bookmark.selected)} key={bookmark._id} src={pencil} alt="edit bookmark"/>
-                    }
+                    <DisplayEditOption bookmark={bookmark} updateBookmark={this.updateBookmark}/>
                   </div>
                 </li>
               )
