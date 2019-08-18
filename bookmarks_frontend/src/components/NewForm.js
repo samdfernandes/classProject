@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import '../App.css'
 
 let baseURL = 'http://localhost:3003'
 

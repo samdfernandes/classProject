@@ -48,7 +48,6 @@ class Edit extends React.Component {
     render() {
         return (
             <div className="details">
-
                 <label htmlFor="name"></label>
                 <input type="text" id="link" name="link" placeholder="Add a Link..." onChange={this.handleChange} value={this.state.link}></input>
                 <input type="text" id="name" name="name" placeholder="Website Name" onChange={this.handleChange} value={this.state.name}></input>

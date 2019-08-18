@@ -37,6 +37,7 @@ class SamEditForm extends React.Component {
         })
         this.props.updateBookmark(response.data)
         this.props.closeEditFunction()
+        window.location.reload();
     }
 
     
