@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm'
-import Edit from './components/Edit'
+import Edit from './components/Show'
 import trash from './images/trashIcon.png'
 import pencil from './images/pencilIcon.png'
 
@@ -89,6 +89,7 @@ class App extends Component {
         </ul>
      </div> 
       
+      <Show />
       <NewForm handleAddBookmark={this.handleAddBookmark}/>
       <Show />
     </div>
