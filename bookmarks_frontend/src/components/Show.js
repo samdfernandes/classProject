@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 
+
 let baseURL = 'http://localhost:3003'
 
 class Edit extends React.Component {
@@ -10,7 +11,12 @@ class Edit extends React.Component {
             name: "",
             link: "",
             description:"",
+            edit: false,
+            currentBookmark:{},
         }
+        this.makeEdit = this.makeEdit.bind(this) 
+        this.stopEdit = this.stopEdit.bind(this)
+        this.handleEditThisBookmark = this.handleEditThisBookmark.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
@@ -24,6 +30,19 @@ class Edit extends React.Component {
         const response = await axios.post(`${baseURL}/bookmarks`, {name: this.state.name, link: this.state.link, description: this.state.description})
         this.setState({name: ''})
         this.props.handleAddBookmark(response.data)
+    }
+
+    makeEdit(bookmark) {
+        this.setState({
+            edit: !this.state.edit,
+            currentBookmark: bookmark
+        })
+    }
+
+    stopEdit() {
+        this.setState({
+            edit: false
+        })
     }
 
     render() {

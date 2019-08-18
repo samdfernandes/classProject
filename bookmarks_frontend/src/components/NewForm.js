@@ -31,6 +31,7 @@ class NewForm extends React.Component {
 
     render() {
         return (
+            <div class="form">
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name"></label>
                 <input type="text" id="link" name="link" placeholder="Add a Link..." onChange={this.handleChange} value={this.state.link}></input>
@@ -38,6 +39,7 @@ class NewForm extends React.Component {
                 <input type="text" id="description" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} ></input>
                 <input type="submit" value="Submit"></input>
             </form>
+            </div>
         )
     }
 } 
