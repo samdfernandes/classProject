@@ -32,7 +32,7 @@ class NewForm extends React.Component {
 
     render() {
         return (
-            <div class="form">
+            <div className="form">
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name"></label>
                 <input type="text" id="link" name="link" placeholder="Add a Link..." onChange={this.handleChange} value={this.state.link}></input>
