@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import NewForm from './components/NewForm'
-import Show from './components/Show'
+import Edit from './components/Edit'
 import trash from './images/trashIcon.png'
 import pencil from './images/pencilIcon.png'
 
@@ -42,6 +42,11 @@ class App extends Component {
     })
   }
 
+  async handleUpdateBookmark(bookmarkToUpdate){
+    this.setState({
+      bookmark: bookmarkToUpdate
+    })
+  }
   componentDidMount() {
     this.getBookmarks()
   }
@@ -58,14 +63,15 @@ class App extends Component {
                 <li key={bookmark._id}>
                   <a href={bookmark.link}>{bookmark.name}</a>
                   <div onClick={() => this.deleteBookmark(bookmark._id)}><img src={trash} alt="delete bookmark"/></div>
-                  <div /*onclick={() => this.updateBookmark(bookmark._id)}*/><img src={pencil} alt="edit bookmark"/></div>
+                  <div onclick={() => this.handleUpdateBookmark(bookmark._id)}>
+                  <img src={pencil} alt="edit bookmark"/></div>
                 </li>
               )
             })
           }
         </ul>
      </div> 
-      <Show />
+      
       <NewForm handleAddBookmark={this.handleAddBookmark}/>
     </div>
     )
