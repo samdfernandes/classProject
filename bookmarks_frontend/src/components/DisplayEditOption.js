@@ -1,5 +1,5 @@
 import React from 'react';
-import SamEditForm from './SamEditForm';
+import EditForm from './EditForm';
 import pencil from '../images/pencilIcon.png'
 let baseURL = 'http://localhost:3003'
 
@@ -34,6 +34,7 @@ class Show extends React.Component {
 		});
 	};
 
+    //those will update our bookmark
 	handleDisplayEditBookmark(bookmark) {
 		this.props.updateBookmark(bookmark);
     }
@@ -59,7 +60,7 @@ class Show extends React.Component {
             <div onClick={() => this.beginEditFunction(this.state.bookmark)}>
                 <img id="editbtn" src={pencil} alt="edit bookmark" />
                 {this.state.isEditing ?
-                    <SamEditForm
+                    <EditForm
                         bookmark={this.state.bookmark} 
                         bookmarks={this.state.bookmarks} 
                         updateBookmark={this.updateBookmark}

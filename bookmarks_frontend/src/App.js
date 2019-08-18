@@ -4,7 +4,7 @@ import NewForm from './components/NewForm'
 import Show from './components/Show'
 import trash from './images/trashIcon.png'
 import edit from './images/pencilIcon.png'
-import SamEditForm from './components/SamEditForm'
+import EditForm from './components/EditForm'
 
 import DisplayEditOption from './components/DisplayEditOption'
 
@@ -29,20 +29,6 @@ class App extends Component {
   handleAddBookmark(bookmark) {
     this.setState({
       bookmarks: [...this.state.bookmarks, bookmark]
-    })
-  }
-
-
-  //maybe move this function later to our show or other component file to use with the update function
- 
-
-  //use this function to either show pencil icon to click on or to show form to update current bookmark
-  toggleSelected(selected) {
-    selected ? this.setState({
-      selected: false 
-    }) :
-    this.setState({
-      selected: true
     })
   }
 

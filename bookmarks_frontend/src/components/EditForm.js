@@ -20,6 +20,7 @@ class SamEditForm extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
+    //assigns the new key/value pairs based on the event handler
     handleChange(event) {
         const {name, value} = event.target
         this.setState({ 
@@ -27,6 +28,7 @@ class SamEditForm extends React.Component {
         })
     }
 
+    // and finally updates the bookmarks
     async handleSubmit (event) {
         event.preventDefault()
         const response = await axios.put(`${baseURL}/bookmarks/${this.props.bookmark._id}`, {name: this.state.name, link: this.state.link, description: this.state.description})
