@@ -8,13 +8,14 @@ class Show extends React.Component {
 		super(props);
 		this.state = {
 			isEditing: false,
-            bookmark: {},
+            bookmarks: this.props.bookmarks,
             bookmark: this.props.bookmark
 		};
 
 		this.beginEditFunction = this.beginEditFunction.bind(this);
 		this.closeEditFunction = this.closeEditFunction.bind(this);
-		this.handleDisplayEditBookmark = this.handleDisplayEditBookmark.bind(this);
+        this.handleDisplayEditBookmark = this.handleDisplayEditBookmark.bind(this);
+        this.updateBookmark = this.updateBookmark.bind(this)
 	}
 
 	// FUNCTION
@@ -34,8 +35,24 @@ class Show extends React.Component {
 	};
 
 	handleDisplayEditBookmark(bookmark) {
-		this.props.editBookmark(bookmark);
-	}
+		this.props.updateBookmark(bookmark);
+    }
+    
+    updateBookmark(thisBookmark) {
+        const bookmarks = [this.props.bookmarks];
+    
+        const newbookmarks = bookmarks.map(bookmark => {
+          if(bookmark._id === thisBookmark._id) {
+            bookmark.name = thisBookmark.name;
+            bookmark.link = thisBookmark.link;
+            bookmark.description = thisBookmark.description;
+            return bookmark
+          }
+        })
+        this.setState({
+          bookmarks: newbookmarks
+        })
+      }
 
 	render() {
 		return (
@@ -43,9 +60,9 @@ class Show extends React.Component {
                 <img src={pencil} alt="edit bookmark" />
                 {this.state.isEditing ?
                     <SamEditForm
-                        bookmark={this.state.bookmark}
-                        handleDisplayEditBookmark={this.handleDisplayEditBookmark(this.state.bookmark)} 
-                        />
+                        bookmark={this.state.bookmark} 
+                        bookmarks={this.state.bookmarks} />
+
                     : null}
 			</div>
 		);

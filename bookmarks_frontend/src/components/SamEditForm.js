@@ -13,10 +13,10 @@ class SamEditForm extends React.Component {
             name: this.props.bookmark.name,
             link: this.props.bookmark.link,
             description: this.props.bookmark.description,
-            id: this.props.bookmark._id
+            id: this.props.bookmark._id,
+            bookmarks: this.props.bookmarks
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleEdit = this.handleEdit.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -38,6 +38,8 @@ class SamEditForm extends React.Component {
         this.props.updateBookmark(response.data)
         this.props.closeEditFunction()
     }
+
+    
 
     render() {
         return (

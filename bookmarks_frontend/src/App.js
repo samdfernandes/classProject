@@ -22,7 +22,7 @@ class App extends Component {
     }
     this.handleAddBookmark = this.handleAddBookmark.bind(this)
     this.deleteBookmark = this.deleteBookmark.bind(this)
-    this.toggleSelected = this.toggleSelected.bind(this)
+   
   }
 
   handleAddBookmark(bookmark) {
@@ -33,21 +33,7 @@ class App extends Component {
 
 
   //maybe move this function later to our show or other component file to use with the update function
-  updateBookmark(thisBookmark) {
-    const bookmarks = this.state.bookmarks;
-
-    bookmarks.forEach(bookmark => {
-      if(bookmark._id === thisBookmark._id) {
-        bookmark.name = thisBookmark.name;
-        bookmark.link = thisBookmark.link;
-        bookmark.description = thisBookmark.description;
-        return bookmark
-      }
-    })
-    this.setState({
-      bookmarks: bookmarks
-    })
-  }
+ 
 
   //use this function to either show pencil icon to click on or to show form to update current bookmark
   toggleSelected(selected) {
@@ -108,7 +94,7 @@ class App extends Component {
                   </div>
                   
                   <div >
-                    <DisplayEditOption bookmark={bookmark} updateBookmark={this.updateBookmark}/>
+                    <DisplayEditOption bookmark={bookmark} bookmarks={this.state.bookmarks}/>
                   </div>
                 </li>
               )
