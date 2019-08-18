@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Lexend+Exa|Source+Sans+Pro&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,10 +14,59 @@ code {
     monospace;
 }
 
+h1 {
+  margin-top: 75px;
+  text-align: center;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 42px;
+}
+
+
 .form {
-  margin: 100px;
+  margin-top: 70px;
+  text-align: center;
 }
 
 ul {
-  margin-left: 75px;
+  margin-top: 50px;
+  text-align: center;
+  list-style: none;
+  font-size: 24px;
+  font-family: 'Lexend Deca', sans-serif;
 }
+
+input {
+  height: 50px;
+  font-size: 24px;
+  margin-right: 25px;
+  font-family: 'Lexend Deca', sans-serif;
+  border-radius: 5px;
+}
+
+.submit {
+  font-size: 24px;
+  height: 55px;
+  width: 100px;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 5px;
+}
+
+.submit:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #3333ff;
+}
+
+#displayEdit {
+  margin-top: 50px;
+}
+
+

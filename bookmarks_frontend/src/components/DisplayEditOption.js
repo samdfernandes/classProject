@@ -57,7 +57,7 @@ class Show extends React.Component {
 	render() {
 		return (
             <div onClick={() => this.beginEditFunction(this.state.bookmark)}>
-                <img src={pencil} alt="edit bookmark" />
+                <img id="editbtn" src={pencil} alt="edit bookmark" />
                 {this.state.isEditing ?
                     <SamEditForm
                         bookmark={this.state.bookmark} 

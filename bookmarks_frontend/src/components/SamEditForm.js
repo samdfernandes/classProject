@@ -49,7 +49,7 @@ class SamEditForm extends React.Component {
                 <input type="text" name="link"  value={this.state.link} onChange={this.handleChange} />
                 <input type="text" name="name"  value={this.state.name} onChange={this.handleChange} />
                 <input type="text" name="description" value={this.state.description} onChange={this.handleChange} />
-                <input type="submit" value="Submit" />
+                <input class="submit" type="submit" value="Submit" />
             </form>
         )
     }

@@ -38,7 +38,7 @@ class NewForm extends React.Component {
                 <input type="text" id="link" name="link" placeholder="Add a Link..." onChange={this.handleChange} value={this.state.link}></input>
                 <input type="text" id="name" name="name" placeholder="Website Name" onChange={this.handleChange} value={this.state.name}></input>
                 <input type="text" id="description" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} ></input>
-                <input type="submit" value="Submit"></input>
+                <button class="submit" type="submit" value="Submit">Submit</button>
             </form>
             </div>
         )

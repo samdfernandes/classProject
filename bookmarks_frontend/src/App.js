@@ -3,6 +3,7 @@ import axios from 'axios';
 import NewForm from './components/NewForm'
 import Show from './components/Show'
 import trash from './images/trashIcon.png'
+import edit from './images/pencilIcon.png'
 import SamEditForm from './components/SamEditForm'
 
 import DisplayEditOption from './components/DisplayEditOption'
@@ -79,6 +80,9 @@ class App extends Component {
   render() {
     return (
     <div>
+      <div className="header">
+      <h1> bookmark'd </h1>
+      </div>
     <NewForm handleAddBookmark={this.handleAddBookmark}/>
      <div>
         <ul>
@@ -88,14 +92,8 @@ class App extends Component {
                 <li key={bookmark._id}>
                   
                   <a href={bookmark.link}>{bookmark.name}</a>
-                  
-                  <div onClick={() => this.deleteBookmark(bookmark._id)}>
-                    <img src={trash} alt="delete bookmark"/>
-                  </div>
-                  
-                  <div >
-                    <DisplayEditOption bookmark={bookmark} bookmarks={this.state.bookmarks}/>
-                  </div>
+                    <DisplayEditOption id="displayEdit" bookmark={bookmark} bookmarks={this.state.bookmarks}/>
+                    <img src={trash} alt="delete bookmark"onClick={() => this.deleteBookmark(bookmark._id)}/>
                 </li>
               )
             })
