@@ -26,6 +26,23 @@ class App extends Component {
     })
   }
 
+  updateBookmark(thisBookmark) {
+    const bookmarks = this.state.bookmarks;
+
+    bookmarks.forEach(bookmark => {
+      if(bookmark._id === thisBookmark._id) {
+        bookmark.name = thisBookmark.name;
+        bookmark.link = thisBookmark.link;
+        bookmark.description = thisBookmark.description;
+      }
+    })
+    this.setState({
+      bookmarks: bookmarks
+    })
+  }
+
+
+
   async getBookmarks() {
     const response = await axios.get(`${baseURL}/bookmarks`)
     const bookmarks = response.data
@@ -73,6 +90,7 @@ class App extends Component {
      </div> 
       
       <NewForm handleAddBookmark={this.handleAddBookmark}/>
+      <Show />
     </div>
     )
   }
